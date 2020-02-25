@@ -119,3 +119,38 @@ function departmentView() {
     }
   });
 }
+//mananger id...
+function managerView() {
+  var query =
+    "SELECT id, first_name, last_name FROM Employee WHERE id IN (SELECT manager_id FROM employee WHERE manager_id IS NOT NULL)";
+  connection.query(query, function(err, res) {
+    for (var i = 0; i < res.length; i++) {
+      console.log(
+        res[i].first_name + " " + res[i].last_name + " || Id: " + res[i].id
+      );
+    }
+
+    runSearch();
+  });
+}
+
+//adding an employeee
+function employeeAdd() {
+  inquirer
+    .prompt({
+      name: "employeeAdd",
+      type: "input",
+      message: ["To ADD an employee, enter Employee First Name then Last Name"]
+    })
+
+    .then(function(answer) {
+      console.log(answer);
+      var str = answer.employeeAdd;
+      var firstAndLastName = str.split(" ");
+      console.log(firstAndLastName);
+      var query = "INSERT INTO employee (first_name, last_name) VALUES ?";
+      connection.query(query, [[firstAndLastName]], function(err, res) {
+        runSearch();
+      });
+    });
+}
