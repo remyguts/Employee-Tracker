@@ -110,3 +110,12 @@ function employeeView() {
       });
     });
 }
+//department query
+function departmentView() {
+  var query = "SELECT name FROM department";
+  connection.query(query, function(err, res) {
+    for (var i = 0; i < res.length; i++) {
+      console.log(res[i].name);
+    }
+  });
+}
