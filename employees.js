@@ -244,3 +244,34 @@ function removeEmployee() {
       });
     });
 }
+//update employee info
+function employeeUpdate() {
+  console.log("updating emp");
+  inquirer
+    .prompt({
+      name: "id",
+      type: "input",
+      message: "Enter employee id"
+    })
+    .then(function(answer) {
+      var id = answer.id;
+
+      inquirer
+        .prompt({
+          name: "roleId",
+          type: "input",
+          message: "Enter role id"
+        })
+        .then(function(answer) {
+          var roleId = answer.roleId;
+
+          var query = "UPDATE employee SET role_id=? WHERE id=?";
+          connection.query(query, [roleId, id], function(err, res) {
+            if (err) {
+              console.log(err);
+            }
+            runSearch();
+          });
+        });
+    });
+}
