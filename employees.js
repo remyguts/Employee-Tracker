@@ -154,3 +154,24 @@ function employeeAdd() {
       });
     });
 }
+
+//adding a dpartment...
+function departmentAdd() {
+  inquirer
+    .prompt({
+      name: "departmentAdd",
+      type: "input",
+      message: ["To ADD a department, enter new department name"]
+    })
+
+    .then(function(answer) {
+      console.log(answer);
+      var str = answer.employeeAdd;
+      var firstAndLastName = str.split(" ");
+      console.log(firstAndLastName);
+      var query = "INSERT INTO employee (first_name, last_name) VALUES ?";
+      connection.query(query, [[firstAndLastName]], function(err, res) {
+        runSearch();
+      });
+    });
+}
