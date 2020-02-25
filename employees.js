@@ -12,3 +12,11 @@ const connection = mysql.createConnection({
   password: "otis1978",
   database: "employees_db"
 });
+
+// throw errors
+connection.connect(function(err) {
+  if (err) throw err;
+  runSearch();
+});
+
+//
