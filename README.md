@@ -1,19 +1,19 @@
 # Employee-Tracker
 Interface that makes it easy for non-developers to view and interact with information stored in database. 
+https://github.com/remyguts/Employee-Tracker
 
 
-# Note-Taker
-https://notetakerremy.herokuapp.com/
 
 ## Purpose / User Story
 
-AS A user, I want to be able to write and save notes
-I WANT to be able to delete notes I've written before
-SO THAT I can organize my thoughts and keep track of tasks I need to complete
+As a business owner
+I want to be able to view and manage the departments, roles, and employees in my company
+So that I can organize and plan my business
+
 
 # Functionality
 
-When using the app, first the user opens the page and presses the get started button. Then, they click on the note field and begins writing notes, when the notes are finished the note is saved for future use or editing. 
+after using npm install and node employee.js, you are able to track the employees in the recording studio based on their specific roles, id, or the manager id in each department. 
 
 
 ### Code 
